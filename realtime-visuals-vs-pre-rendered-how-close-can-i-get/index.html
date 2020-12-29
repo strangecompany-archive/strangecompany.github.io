@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Realtime Visuals Vs Pre-Rendered: How Close Can I Get?" />
+<meta property="og:description" content="OK, before I begin this, I should mention one very important salient fact: this comparison is specific to one non-photorealistic project.
+As mentioned a couple of days ago, I&rsquo;m looking once again at using realtime engines as movie renderers for my Stone And Sorcery project. That&rsquo;s a non-photorealistic animated series, using a strong voxel / Minecraft aesthetic. As such, I wondered just how close I could get to the visuals I achieved using a conventional path tracer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.strangecompany.org/realtime-visuals-vs-pre-rendered-how-close-can-i-get/" />
+
+
+<meta property="og:updated_time" content="2016-02-11T12:51:39&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Realtime Visuals Vs Pre-Rendered: How Close Can I Get?">
+<meta itemprop="description" content="OK, before I begin this, I should mention one very important salient fact: this comparison is specific to one non-photorealistic project.
+As mentioned a couple of days ago, I&rsquo;m looking once again at using realtime engines as movie renderers for my Stone And Sorcery project. That&rsquo;s a non-photorealistic animated series, using a strong voxel / Minecraft aesthetic. As such, I wondered just how close I could get to the visuals I achieved using a conventional path tracer.">
+
+
+<meta itemprop="dateModified" content="2016-02-11T12:51:39&#43;00:00" />
+<meta itemprop="wordCount" content="1363">
+
+
+
+<meta itemprop="keywords" content="carcosa,classic-posts-from-machinima.com,comics,culture-and-law,death-knight-love-story,film-releases,game-design,guest-posting,history-of-machinima,kamikaze-cookery,live-action,machinima-in-the-news,motion-capture,offsite-articles,press-for-hugh-and-strangeco,research,talks,the-new-plan,virtual-reality,wierd-fantasy,2015,3d-chatroom,3d-engine,3dr-solo,adventure,after-effects,amazon,animation,anna-chancellor,appearances,artery,articles,audio,audio-drama,auld-reekie,awards,behind-the-scenes,blasphemous,blizzard,bloodspell,boingboing,brian-blessed,cambridge-film-festival,camerawork,capcom,carcosa,cellar-and-tower,cgi,characters,charles-stross,chris-jones,claws,cliffs,comedy,comic,comics,communication,conpulsion,convention,copyright,cthulhu,cthulhu-mythos,cutscenes,dangerous-treasures,dark-souls,darkening-twilight,daz3d,death-knight-love-story,death-marches,demon,development,dkls,dmca,dmfest,documentary,dota,drones,dvd,edinburgh,edinburgh-festival,edinburgh-interactive-entertainment-festival,eldrich,eschaton,esoterica,eula,experiments,eye-of-the-tower,facial-animation,fair-game,fair-trade,fair-use,fanfic,fantasy,fargo-film-festival,faust,faustian-bargain,feature-film,film,film-festivals,film-industry,filmmaking,filter-bubble,follow-focus,forbes,free-feature-film,fthagn,full-ownership,gamasutra,game-design,game-development,game-engine,games,gareth-edwards,gear-vr,geek,geek-lovecraft,gimbals,google,gopro,gpu-rendering,greenscreen,guest-blog,guest-posts,gyroscopes,half-life,hand-of-glory,have-you-seen-the-spires,hdri,history,horroc-comedy,horror,howto,howto-demon-summoning,howto-resurrection,howtodemon-summoning,htc-vive,hugh,hugh-hancock,ia,imus,independent,indie,indie-filmmaking,indiedev,inquisitors-oath,intellectual-property,interactive,interview,jack-davenport,joanna-lumley,johnnie-ingram,jrpg,kamikaze-cookery,king-in-yellow,language,languages,law,leap-motion,left-hand-path,left-handed-path,lessons-learned,lets-play,lily-drone,live-action,lord-byron,lovecraft,low-light,lumberyard,machinima,machinima.com,magic-of-the-dark,male-restroom-etiquette,matinee,matrix,matrix-4x1,mediums,minecraft,mmorpgs,mocap,motion-capture,motionbuilder,movies,mvn,mystery,nebula-4000,nell-gwyn,new-project,no-share,non-narrative,npr,occult,octane-render,oculus-rift,otoy,paddy-easton,panorama,paul-hamilton,paul-marino,performance-capture,pgwlnafh,pictures,pilot,pipeline,podcasting,podcasts,pre-rendering,press,private-servers,procedural-generation,props,punk,puppetry,quake-movie,radio,radio-plays,raindance,rando-cardrissian,release,renderers,rendering,research,rlyeh,robots,roger-ebert,romantic-poets,roomscale,rpg,rpgs,scripts,second-life,serialised-video,shambler,shoggoth,short-film,singapore,sinister,soloshot,sony-a7s,squamous,startup,stereo-cubemap,stone-and-sorcery,stories,stunts,subtitles,tarot,technical,telltale-games,test-project,text,the-future,the-goat-of-the-woods-with-a-thousand-young,the-guardian,the-return,the-scotsman,the-sims,time-travellers,trailer,tv,twitter,unity,unity-3d,unreal,upcoming,vfx,virtual-camera,virtual-reality,virtual-sets,visual-effects,vive,voxels,vr,vrjam,webcomic,websites,weird,westcott-icelight,when-we-two-parted,wholetsplay,why-machinima,work-in-progress,world-of-warcraft,wow,wow-insider,xsens," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Realtime Visuals Vs Pre-Rendered: How Close Can I Get?"/>
+<meta name="twitter:description" content="OK, before I begin this, I should mention one very important salient fact: this comparison is specific to one non-photorealistic project.
+As mentioned a couple of days ago, I&rsquo;m looking once again at using realtime engines as movie renderers for my Stone And Sorcery project. That&rsquo;s a non-photorealistic animated series, using a strong voxel / Minecraft aesthetic. As such, I wondered just how close I could get to the visuals I achieved using a conventional path tracer."/>
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18" />
+
+
+    <link rel="canonical" href="index.html">
+
+    <title>Realtime Visuals Vs Pre-Rendered: How Close Can I Get? | Strange Company - Creating Virtual Worlds For 2 Decades</title>
+
+    <!-- combined, minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-696676-12', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='http://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+
+	
+<style>
+
+  @font-face{font-family:FontAwesome;src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot");src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot#iefix&v=4.7.0") format("embedded-opentype"),url("http://d33wubrfki0l68.cloudfront.net/d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c/a8490/fonts/fontawesome-webfont.woff2") format("woff2"),url("http://d33wubrfki0l68.cloudfront.net/28b782240b3e76db824e12c02754a9731a167527/9333f/fonts/fontawesome-webfont.woff") format("woff"),url("http://d33wubrfki0l68.cloudfront.net/13b1eab65a983c7a73bc7997c479d66943f7c6cb/8dbd9/fonts/fontawesome-webfont.ttf") format("truetype"),url("http://d33wubrfki0l68.cloudfront.net/98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed/62e61/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.285714em;text-align:center}.fa-tag:before{content:""}.fa-folder:before{content:""}.fa-facebook:before{content:""}.fa-google-plus:before{content:""}.fa-linkedin:before{content:""}.fa-rss:before{content:""}.fa-rss-square:before{content:""}.fa-twitter:before{content:""}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+
+h1{
+    padding-bottom: 1em;
+}
+.intro {
+	padding: 1em 0 2.6em 0;
+	text-align: center;
+}
+.intro img {
+	max-height: 160px;
+	border-radius: 50%;
+}
+.container{
+    max-width: 1000px; 
+}
+h2{
+    font-size:2em;
+}
+body {
+	color: #333;
+	font-family: 'Noticia Text', Georgia, serif;
+	font-size: 1em;
+	line-height: 1.5625;
+	-webkit-text-size-adjust: none;
+}
+
+blockquote {
+	position: relative;
+	margin: 2em 0;
+	padding: .4em 1.2em;
+	font-size: 1.25em;
+	font-weight: 400;
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.aligncenter, .alignnone, .alignright, .alignleft {
+	display: block;
+	margin: 1.6em auto;
+	clear: both;
+}
+
+.alignleft {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+.alignright {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+article img {width: 110%; margin-left: -5%; margin-top: 30px; margin-bottom: 30px; }
+
+blockquote.alignleft, blockquote.alignright {
+	width: 50% !important;
+	padding-bottom: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 12px;
+	padding-right: 1em;
+	margin-top: 16px;
+	font-style: normal;
+	font-weight: 400;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+blockquote::before {
+	display: block;
+	content: "\e81a";
+	line-height: 1;
+	font-size: 18px;
+	position: absolute;
+	left: 0;
+	top: -12px;
+}
+
+.icon, .icon::before, .alert::before, blockquote::before, .flex-direction-nav a::before, .toggle h4::before, .search-toggle::before, .menu-toggle::before, .social-toggle::before, .mask::before, .post-format::before, .selector::before, .checker span::before, .radio span::before, .uploader span.action::before {
+	font-family: fontello;
+	font-style: normal;
+	font-weight: 400;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.embed-responsive{
+    margin:20px; 
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 1.0em 0 0.4em 0;
+	line-height: 1.3;
+}
+
+hr {
+	padding: .2em 0 1em 0;
+	margin-bottom: 2em;
+	outline: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #eee;
+}
+
+p, li {
+	font-size: 19px;
+	line-height: 30px;
+}
+
+.site-title {
+	text-indent: 20px;
+	font-size: 1.4em;
+    font-weight:600; 
+	letter-spacing: -1px;
+    color: #333}
+
+
+.nav{
+    font-weight: 700; 
+}
+
+.navbar-nav{ 
+    padding:0; margin:0; 
+    }
+.navbar-nav li { 
+    line-height: 1; font-size: 15px; font-weight: bold; margin-left: 12px; margin-right: 12px; 
+    }
+.navbar-nav li a { 
+     padding: 0.9em 22px; border-bottom: 1px solid #E7E7E7; 
+    color:#333; 
+    }
+    .navbar{
+        padding:0; line-height: 1.8; 
+    }
+
+.blog-post-meta{
+		font-weight: 100;
+		font-size: 0.9em;
+		font-variant: small-caps; 
+		text-align: center; 
+	}
+
+	.blog-post-title {
+		text-align: center; 
+	}
+
+	.blog-post-title a{
+		color: #333;
+	}
+
+	.blog-main h1{
+		font-variant: small-caps; 
+		text-align: center;
+	}
+
+	.blog-summary-image{
+		width: 90%;
+		margin: 0 auto;  
+		min-height: 150px; 
+		background-position: center center; 
+		background-size: cover; 
+	}
+
+	.card-custom{
+		width: 90vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 90vw; 
+	}
+
+	.card-custom a{
+		color: #333; 
+	}
+
+	.card-custom a:hover{
+		text-decoration: none; 
+		background-blend-mode: screen; 
+	}
+
+	.card-topper{
+		width: 90vw;
+		height: 60vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+
+	.menu-button{
+		margin:25px; 
+		border: thin grey solid; 
+		padding: 5px; 
+		border-radius: 10px; 
+		position: relative; 
+		display: inline-block;
+		left: -10vw; 
+		top: -1.5vh; 
+	}
+
+	.top-image
+	{
+		min-height: 150px;
+		margin-bottom: 30px; 
+	}
+
+
+@media (min-width: 768px)
+{
+		.card-topper{
+		width: 45vw;
+		height: 25vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+		.card-custom{
+		width: 45vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 45vw; 
+	}
+    h2 {
+	font-size: 2.10em;
+}
+.top-image
+	{
+		min-height: 250px;
+	}
+blockquote {
+	font-size: 2em !important;
+	line-height: 1.3 !important;
+}
+
+}
+
+@media (min-width: 1024px)
+{
+	.card-topper{
+		width: 29vw;
+		height: 17vw;
+	}
+.card-custom{
+		width: 29vw;
+		margin: 0.5vw; 
+		max-width: 29vw;
+	}
+}
+
+@media (min-width: 1279px)
+{
+	.card-topper{
+		width: 22vw;
+		height: 12.5vw;
+	}
+.card-custom{
+		width: 22vw;
+		margin: 0.5vw; 
+		max-width: 22vw;
+	}
+	.top-image
+	{
+		min-height: 400px;
+		margin-bottom: 75px;
+	}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet"> 
+<link rel="stylesheet" id="fontello-css" href="../wp-content/themes/readme/css/fonts/fontello/css/fontello.css" type="text/css" media="all">
+  </head>
+
+  <body>
+
+
+
+
+    <nav class="navbar navbar-toggleable-md">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <a class="site-title navbar-brand " href="../index.html">Strange Company</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item"> 
+          <a href="../news/index.html" class="nav-link">Latest News</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../articles/index.html" class="nav-link">Articles by Hugh</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../about/index.html" class="nav-link">About Hugh Hancock And Strange Company</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../vr/index.html" class="nav-link">My Virtual Reality Games</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../films-and-comics/index.html" class="nav-link">My Movies And Comics</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../other-projects/index.html" class="nav-link">My Other Projects</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../contact/index.html" class="nav-link">Contact Me / Social Media</a>
+        </li>
+        </ul>
+      </div>
+   </nav>
+
+<div class="container-fluid top-image" style="background-image: url( ../media/Stone-And-Sorcery-Website-Image-11.jpg  ); background-size:cover; background-position: center center"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="index.html">Realtime Visuals Vs Pre-Rendered: How Close Can I Get?</a></h2>
+  </header>
+  
+
+<p>OK, before I begin this, I should mention one very important salient fact: this comparison is specific to one non-photorealistic project.</p>
+
+<p>As mentioned <a href="../development-notes-unreal-engine-as-a-movie-renderer/index.html">a couple of days ago</a>, I&rsquo;m looking once again at using realtime engines as movie renderers for my <a href="http://www.stoneandsorcery.com">Stone And Sorcery</a> project. That&rsquo;s a non-photorealistic animated series, using a strong voxel / Minecraft aesthetic. As such, I wondered just how close I could get to the visuals I achieved using a conventional path tracer.</p>
+
+<p>The answer turns out to be &ldquo;very close, but not without some pain and swearing&rdquo;.</p>
+
+<p>Here&rsquo;s the original image I&rsquo;m trying to copy, from the Stone And Sorcery ads I put out last year. It was rendered in about 4 seconds using 3DSMax - fast for a path tracer, but that still gives us a render time of <strong>8 hours or so</strong> for each camera angle of a 5-minute short.</p>
+
+<p><img src="../media/Stone-And-Sorcery-Website-Image-11.jpg" alt="" /></p>
+
+<h3 id="the-progression">The Progression</h3>
+
+<p>So I got started, using Unity 5.</p>
+
+<p>Unity 5 boasts realtime global illumination, using the <a href="http://www.geomerics.com/enlighten/">Enlighten</a> engine, but it&rsquo;s only realtime at the user&rsquo;s end. It requires a precomputation step on the part of the creator. Somewhat nervously, I hit the button to start the precomp - but it turns out that on a set this small, it&rsquo;s really quick. About a second or so.</p>
+
+<p>(That was significantly <strong>less true</strong> on a large Minecraft export I tried as an earlier test: the calculation crashed out hard with what I believe is an out-of-memory error. )</p>
+
+<p>So I had basic GI, I remembered roughly the lighting setup I&rsquo;d used, I dug around to find the right textures and normal map (the latter being responsible for the fine detail on the geometry you can see above - amazingly in 2016 Unity still doesn&rsquo;t have displacement maps by default), and I dropped in some &ldquo;make it pretty&rdquo; functions that I assumed would equate to the path tracer&rsquo;s output - bloom, SonicEther&rsquo;s <a href="https://www.assetstore.unity3d.com/en/#!/content/36093">very nice ambient occlusion plugin</a>, and depth of field.</p>
+
+<p><img src="../media/Unity-Goblins-v0.jpg" alt="" /></p>
+
+<p>Well, it looks kinda nice, but it&rsquo;s clearly not the same. The depth of field looks horrible, the normal maps are jagged, I&rsquo;ve lost the textures on the bow, and the lighting&rsquo;s wrong.</p>
+
+<p>Dropping the depth of field like a hot rock - one thing I&rsquo;ll need to do if I keep up this approach is to either abandon depth of field as a cinematic tool or find a much better shader for it -I get this. Immediately significantly better, but still not there.</p>
+
+<p><img src="../media/unity-Goblins-v1.jpg" alt="" /></p>
+
+<p>So I went back to the original path-tracing model in Max, and took a careful look at what was going on.</p>
+
+<p>For starters, there was some geometry missing in the FBX file I imported - that&rsquo;s what was responsible for the line behind the characters&rsquo; heads in the original. Expecting the fix to be a complete nightmare, I tried the simplest thing I could think of - create a cube, texture it with the ceiling texture, put it in place, all in Unity. Astonishingly, it worked, and matching the texture scales turned out not to be the bear I was anticipating.</p>
+
+<p>Next, the normal maps looked horrible. You can see that at the bottom of the above image, the geometry&rsquo;s all pixelated. This frustrated me for a good long while - I managed to track down the fact that I&rsquo;d got two normal maps on the single texture by mistake, but still, the maps came out pixelated.</p>
+
+<p>Finally, I dived into Unity&rsquo;s texture detail settings, and found the problem. The original normal maps are extremely high resolution - more than 8k pixels wide. However, Unity is designed for games, which generally don&rsquo;t like images that large (particularly on an iPhone), and so it resizes them by default, and then applies some lossy compression. That&rsquo;s fine if you&rsquo;re not seeing the texture close-up (look at the ceiling), but it&rsquo;s an image-destroyer for something which occupies a quarter of the screen.</p>
+
+<p>I killed every compression, filtering, and size-reduction setting I could see, and the normals returned to close to the quality we see in the path tracer.</p>
+
+<p>Then I just straight-up copied the light colours and placements from the path tracing file, and dropped them in. And I took considerably more care over the exact frame of animation I used&hellip;</p>
+
+<p><img src="../media/Unity-Goblins-v2.jpg" alt="" /></p>
+
+<p>And I think we can all agree, it ended up looking like dogshit on toast.</p>
+
+<p>Up until now, I was starting to think that there was very little difference between the lighting quality in Unity and in MAX, at least for this scene. However, now I hit the big caveat to that theory: Unity can look great, but its lighting <strong>absolutely does not</strong> behave like a path tracer.</p>
+
+<p>The lighting settings for the light at the back produced very different colours, for no reason I fully understand. The light also bounced differently, partially because Unity 5&rsquo;s standard shader is a PBR (Physically Based Renderer) shader with completely different settings to the normal diffuse/specular/normal shader in MAX. You can see in the above image that the ceiling is quite shiny, almost plastic-looking.</p>
+
+<p>I couldn&rsquo;t copy the shader settings, so I tweaked the Unity shader to look a bit better.</p>
+
+<p>Another huge issue: whilst in MAX lights can be of an arbitrary size, in Unity the real-time lighting all comes from point sources - sources that are infinitely small. Before last year&rsquo;s journey through the world of Real Film I didn&rsquo;t fully realise the key difference between small sources and large: larger sources produce completely different, much softer shadows.</p>
+
+<p>I had to fake the effect by adding 3 point lights rather than one at the back. At this point the &ldquo;faking it&rdquo; and complexity of game lighting was starting to show through: whilst game lighting might be faster, it&rsquo;s often the case that you need to spend a lot more time working around its limitations than when you&rsquo;re working with a path tracer, which will simply render light exactly as it works in the real world.</p>
+
+<p>Finally, I had the lighting at the front of the image to contend with. In the path tracer, it&rsquo;s down the bottom of the pit the goblins are looking into: thanks to the magic of inverse-square law, it illuminates the edge more than the ceiling. In Unity, I found, the reverse was true - possibly because I&rsquo;d not set the shader up correctly, or possibly because of a limitation of the more simple lighting model. I ended up having to move the light closer in order to make the ceiling darker and the edge lighter - something that makes no sense, but clearly worked with the lighting model in Unity.</p>
+
+<p>And thus we end up with the final version:</p>
+
+<p><img src="../media/Unity-Goblins-v3.jpg" alt="" /></p>
+
+<p>For comparison, here&rsquo;s the original path-traced image again:</p>
+
+<p><img src="../media/Stone-And-Sorcery-Website-Image-11.jpg" alt="" /></p>
+
+<p>Obviously the lighting&rsquo;s not precisely right - there&rsquo;s a bit more contrast in the original. The angle&rsquo;s slightly different too.</p>
+
+<p>But it&rsquo;s pretty close.</p>
+
+<p>Showing the two images to some friends, <a href="http://www.twitter.com/johnnieingram">Johnnie Ingram</a> pointed out something very interesting. Due to the nature of the two renderers, the edges in the Unity render are much sharper than those in the path-traced renderer. He felt that a &ldquo;normal&rdquo; person who didn&rsquo;t know the origin of the two images would think that the Unity render was thus higher quality. It&rsquo;ll be interesting to test!</p>
+
+<p>The ambient occlusion effect works nicely in the Unity version to add additional shadow and detail. The only issue there is the green halo around the left-side character&rsquo;s head - apparently the SSAO algorithm used in that particular shader still has trouble identifying objects that are seperate from the background. I know the NVidia HBAO algorithm has less trouble with that - although it has problems of its own - so I&rsquo;ll probably try a variant of that one next.</p>
+
+<p>Overall, as a proof of concept this looks pretty solid. Next step is to render the second episode of Stone And Sorcery with Unity and see how it holds up - coming soon!</p>
+
+<p>*If you want to let me know what you think, feel free to give me a shout on <a href="http://www.twitter.com/hughhancock">Twitter</a> or <a href="http://www.facebook.com/strangecompany">Facebook</a> - or join the discussions on <a href="https://www.reddit.com/r/Unity3D/comments/458moy/attempting_to_recreate_prerendered_image_results/">Reddit</a> or <a href="https://news.ycombinator.com/item?id=11079828">Hacker News</a>. Links will be added once I&rsquo;ve set those up!</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+
+</html>

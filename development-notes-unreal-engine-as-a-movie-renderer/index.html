@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Development Notes: Unreal Engine As A Movie Renderer" />
+<meta property="og:description" content="I&rsquo;m doing a lot of ongoing research at the moment into new production techniques for live-action, animation, and comics, and will be writing some of that up here in semi-note form.
+This is the first of those!
+Looking at the possibility of using the Unreal Engine as a movie renderer in 2016, I&rsquo;ve come to the conclusion that it&rsquo;s possible, but not the slam-dunk awesome solution it initially seemed it might be." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.strangecompany.org/development-notes-unreal-engine-as-a-movie-renderer/" />
+
+
+<meta property="og:updated_time" content="2016-02-08T13:04:54&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Development Notes: Unreal Engine As A Movie Renderer">
+<meta itemprop="description" content="I&rsquo;m doing a lot of ongoing research at the moment into new production techniques for live-action, animation, and comics, and will be writing some of that up here in semi-note form.
+This is the first of those!
+Looking at the possibility of using the Unreal Engine as a movie renderer in 2016, I&rsquo;ve come to the conclusion that it&rsquo;s possible, but not the slam-dunk awesome solution it initially seemed it might be.">
+
+
+<meta itemprop="dateModified" content="2016-02-08T13:04:54&#43;00:00" />
+<meta itemprop="wordCount" content="996">
+
+
+
+<meta itemprop="keywords" content="carcosa,classic-posts-from-machinima.com,comics,culture-and-law,death-knight-love-story,film-releases,game-design,guest-posting,history-of-machinima,kamikaze-cookery,live-action,machinima-in-the-news,motion-capture,offsite-articles,press-for-hugh-and-strangeco,research,talks,the-new-plan,virtual-reality,wierd-fantasy,2015,3d-chatroom,3d-engine,3dr-solo,adventure,after-effects,amazon,animation,anna-chancellor,appearances,artery,articles,audio,audio-drama,auld-reekie,awards,behind-the-scenes,blasphemous,blizzard,bloodspell,boingboing,brian-blessed,cambridge-film-festival,camerawork,capcom,carcosa,cellar-and-tower,cgi,characters,charles-stross,chris-jones,claws,cliffs,comedy,comic,comics,communication,conpulsion,convention,copyright,cthulhu,cthulhu-mythos,cutscenes,dangerous-treasures,dark-souls,darkening-twilight,daz3d,death-knight-love-story,death-marches,demon,development,dkls,dmca,dmfest,documentary,dota,drones,dvd,edinburgh,edinburgh-festival,edinburgh-interactive-entertainment-festival,eldrich,eschaton,esoterica,eula,experiments,eye-of-the-tower,facial-animation,fair-game,fair-trade,fair-use,fanfic,fantasy,fargo-film-festival,faust,faustian-bargain,feature-film,film,film-festivals,film-industry,filmmaking,filter-bubble,follow-focus,forbes,free-feature-film,fthagn,full-ownership,gamasutra,game-design,game-development,game-engine,games,gareth-edwards,gear-vr,geek,geek-lovecraft,gimbals,google,gopro,gpu-rendering,greenscreen,guest-blog,guest-posts,gyroscopes,half-life,hand-of-glory,have-you-seen-the-spires,hdri,history,horroc-comedy,horror,howto,howto-demon-summoning,howto-resurrection,howtodemon-summoning,htc-vive,hugh,hugh-hancock,ia,imus,independent,indie,indie-filmmaking,indiedev,inquisitors-oath,intellectual-property,interactive,interview,jack-davenport,joanna-lumley,johnnie-ingram,jrpg,kamikaze-cookery,king-in-yellow,language,languages,law,leap-motion,left-hand-path,left-handed-path,lessons-learned,lets-play,lily-drone,live-action,lord-byron,lovecraft,low-light,lumberyard,machinima,machinima.com,magic-of-the-dark,male-restroom-etiquette,matinee,matrix,matrix-4x1,mediums,minecraft,mmorpgs,mocap,motion-capture,motionbuilder,movies,mvn,mystery,nebula-4000,nell-gwyn,new-project,no-share,non-narrative,npr,occult,octane-render,oculus-rift,otoy,paddy-easton,panorama,paul-hamilton,paul-marino,performance-capture,pgwlnafh,pictures,pilot,pipeline,podcasting,podcasts,pre-rendering,press,private-servers,procedural-generation,props,punk,puppetry,quake-movie,radio,radio-plays,raindance,rando-cardrissian,release,renderers,rendering,research,rlyeh,robots,roger-ebert,romantic-poets,roomscale,rpg,rpgs,scripts,second-life,serialised-video,shambler,shoggoth,short-film,singapore,sinister,soloshot,sony-a7s,squamous,startup,stereo-cubemap,stone-and-sorcery,stories,stunts,subtitles,tarot,technical,telltale-games,test-project,text,the-future,the-goat-of-the-woods-with-a-thousand-young,the-guardian,the-return,the-scotsman,the-sims,time-travellers,trailer,tv,twitter,unity,unity-3d,unreal,upcoming,vfx,virtual-camera,virtual-reality,virtual-sets,visual-effects,vive,voxels,vr,vrjam,webcomic,websites,weird,westcott-icelight,when-we-two-parted,wholetsplay,why-machinima,work-in-progress,world-of-warcraft,wow,wow-insider,xsens," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Development Notes: Unreal Engine As A Movie Renderer"/>
+<meta name="twitter:description" content="I&rsquo;m doing a lot of ongoing research at the moment into new production techniques for live-action, animation, and comics, and will be writing some of that up here in semi-note form.
+This is the first of those!
+Looking at the possibility of using the Unreal Engine as a movie renderer in 2016, I&rsquo;ve come to the conclusion that it&rsquo;s possible, but not the slam-dunk awesome solution it initially seemed it might be."/>
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18" />
+
+
+    <link rel="canonical" href="index.html">
+
+    <title>Development Notes: Unreal Engine As A Movie Renderer | Strange Company - Creating Virtual Worlds For 2 Decades</title>
+
+    <!-- combined, minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-696676-12', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='http://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+
+	
+<style>
+
+  @font-face{font-family:FontAwesome;src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot");src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot#iefix&v=4.7.0") format("embedded-opentype"),url("http://d33wubrfki0l68.cloudfront.net/d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c/a8490/fonts/fontawesome-webfont.woff2") format("woff2"),url("http://d33wubrfki0l68.cloudfront.net/28b782240b3e76db824e12c02754a9731a167527/9333f/fonts/fontawesome-webfont.woff") format("woff"),url("http://d33wubrfki0l68.cloudfront.net/13b1eab65a983c7a73bc7997c479d66943f7c6cb/8dbd9/fonts/fontawesome-webfont.ttf") format("truetype"),url("http://d33wubrfki0l68.cloudfront.net/98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed/62e61/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.285714em;text-align:center}.fa-tag:before{content:""}.fa-folder:before{content:""}.fa-facebook:before{content:""}.fa-google-plus:before{content:""}.fa-linkedin:before{content:""}.fa-rss:before{content:""}.fa-rss-square:before{content:""}.fa-twitter:before{content:""}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+
+h1{
+    padding-bottom: 1em;
+}
+.intro {
+	padding: 1em 0 2.6em 0;
+	text-align: center;
+}
+.intro img {
+	max-height: 160px;
+	border-radius: 50%;
+}
+.container{
+    max-width: 1000px; 
+}
+h2{
+    font-size:2em;
+}
+body {
+	color: #333;
+	font-family: 'Noticia Text', Georgia, serif;
+	font-size: 1em;
+	line-height: 1.5625;
+	-webkit-text-size-adjust: none;
+}
+
+blockquote {
+	position: relative;
+	margin: 2em 0;
+	padding: .4em 1.2em;
+	font-size: 1.25em;
+	font-weight: 400;
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.aligncenter, .alignnone, .alignright, .alignleft {
+	display: block;
+	margin: 1.6em auto;
+	clear: both;
+}
+
+.alignleft {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+.alignright {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+article img {width: 110%; margin-left: -5%; margin-top: 30px; margin-bottom: 30px; }
+
+blockquote.alignleft, blockquote.alignright {
+	width: 50% !important;
+	padding-bottom: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 12px;
+	padding-right: 1em;
+	margin-top: 16px;
+	font-style: normal;
+	font-weight: 400;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+blockquote::before {
+	display: block;
+	content: "\e81a";
+	line-height: 1;
+	font-size: 18px;
+	position: absolute;
+	left: 0;
+	top: -12px;
+}
+
+.icon, .icon::before, .alert::before, blockquote::before, .flex-direction-nav a::before, .toggle h4::before, .search-toggle::before, .menu-toggle::before, .social-toggle::before, .mask::before, .post-format::before, .selector::before, .checker span::before, .radio span::before, .uploader span.action::before {
+	font-family: fontello;
+	font-style: normal;
+	font-weight: 400;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.embed-responsive{
+    margin:20px; 
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 1.0em 0 0.4em 0;
+	line-height: 1.3;
+}
+
+hr {
+	padding: .2em 0 1em 0;
+	margin-bottom: 2em;
+	outline: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #eee;
+}
+
+p, li {
+	font-size: 19px;
+	line-height: 30px;
+}
+
+.site-title {
+	text-indent: 20px;
+	font-size: 1.4em;
+    font-weight:600; 
+	letter-spacing: -1px;
+    color: #333}
+
+
+.nav{
+    font-weight: 700; 
+}
+
+.navbar-nav{ 
+    padding:0; margin:0; 
+    }
+.navbar-nav li { 
+    line-height: 1; font-size: 15px; font-weight: bold; margin-left: 12px; margin-right: 12px; 
+    }
+.navbar-nav li a { 
+     padding: 0.9em 22px; border-bottom: 1px solid #E7E7E7; 
+    color:#333; 
+    }
+    .navbar{
+        padding:0; line-height: 1.8; 
+    }
+
+.blog-post-meta{
+		font-weight: 100;
+		font-size: 0.9em;
+		font-variant: small-caps; 
+		text-align: center; 
+	}
+
+	.blog-post-title {
+		text-align: center; 
+	}
+
+	.blog-post-title a{
+		color: #333;
+	}
+
+	.blog-main h1{
+		font-variant: small-caps; 
+		text-align: center;
+	}
+
+	.blog-summary-image{
+		width: 90%;
+		margin: 0 auto;  
+		min-height: 150px; 
+		background-position: center center; 
+		background-size: cover; 
+	}
+
+	.card-custom{
+		width: 90vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 90vw; 
+	}
+
+	.card-custom a{
+		color: #333; 
+	}
+
+	.card-custom a:hover{
+		text-decoration: none; 
+		background-blend-mode: screen; 
+	}
+
+	.card-topper{
+		width: 90vw;
+		height: 60vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+
+	.menu-button{
+		margin:25px; 
+		border: thin grey solid; 
+		padding: 5px; 
+		border-radius: 10px; 
+		position: relative; 
+		display: inline-block;
+		left: -10vw; 
+		top: -1.5vh; 
+	}
+
+	.top-image
+	{
+		min-height: 150px;
+		margin-bottom: 30px; 
+	}
+
+
+@media (min-width: 768px)
+{
+		.card-topper{
+		width: 45vw;
+		height: 25vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+		.card-custom{
+		width: 45vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 45vw; 
+	}
+    h2 {
+	font-size: 2.10em;
+}
+.top-image
+	{
+		min-height: 250px;
+	}
+blockquote {
+	font-size: 2em !important;
+	line-height: 1.3 !important;
+}
+
+}
+
+@media (min-width: 1024px)
+{
+	.card-topper{
+		width: 29vw;
+		height: 17vw;
+	}
+.card-custom{
+		width: 29vw;
+		margin: 0.5vw; 
+		max-width: 29vw;
+	}
+}
+
+@media (min-width: 1279px)
+{
+	.card-topper{
+		width: 22vw;
+		height: 12.5vw;
+	}
+.card-custom{
+		width: 22vw;
+		margin: 0.5vw; 
+		max-width: 22vw;
+	}
+	.top-image
+	{
+		min-height: 400px;
+		margin-bottom: 75px;
+	}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet"> 
+<link rel="stylesheet" id="fontello-css" href="../wp-content/themes/readme/css/fonts/fontello/css/fontello.css" type="text/css" media="all">
+  </head>
+
+  <body>
+
+
+
+
+    <nav class="navbar navbar-toggleable-md">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <a class="site-title navbar-brand " href="../index.html">Strange Company</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item"> 
+          <a href="../news/index.html" class="nav-link">Latest News</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../articles/index.html" class="nav-link">Articles by Hugh</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../about/index.html" class="nav-link">About Hugh Hancock And Strange Company</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../vr/index.html" class="nav-link">My Virtual Reality Games</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../films-and-comics/index.html" class="nav-link">My Movies And Comics</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../other-projects/index.html" class="nav-link">My Other Projects</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../contact/index.html" class="nav-link">Contact Me / Social Media</a>
+        </li>
+        </ul>
+      </div>
+   </nav>
+
+<div class="container-fluid top-image" style="background-image: url( http://i.imgur.com/8nFdh5O.jpg  ); background-size:cover; background-position: center center"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="index.html">Development Notes: Unreal Engine As A Movie Renderer</a></h2>
+  </header>
+  
+
+<p>I&rsquo;m doing a lot of ongoing research at the moment into <strong>new production techniques</strong> for live-action, animation, and comics, and will be writing some of that up here in semi-note form.</p>
+
+<p>This is the first of those!</p>
+
+<p>Looking at the possibility of using the <a href="http://www.unrealengine.com">Unreal Engine</a> as a movie renderer in 2016, I&rsquo;ve come to the conclusion that it&rsquo;s possible, but not the slam-dunk awesome solution it initially seemed it might be. So here are my thoughts on that, and future directions for research.</p>
+
+<h2 id="the-theory">The theory</h2>
+
+<p>So why would I <strong>even consider</strong> using a game engine as a renderer, given the toolchain issues?</p>
+
+<p>(For non-animators: basically, you want to have as few programs in your critical path from &ldquo;I have an idea&rdquo; to &ldquo;I have a movie&rdquo; as possible. Using a game engine rather than just rendering in a 3D program adds at least one, which is bad, and usually a bunch of non-trivial export problems too.)</p>
+
+<p>For the kind of non-photoreal animation I&rsquo;m currently looking at (below), <strong>current-gen game engines produce visuals that are more than adequate for my needs</strong>. And, obviously, they render far, far faster than even GPU-accelerated conventional 3D renderers - 75ms per frame compared to a second or two per frame. That equals a lot more flexibility in production, and a lot less waiting around for 200 frames to re-render because you didn&rsquo;t spot a character&rsquo;s hand goes through the wall for a few seconds.</p>
+
+<p><img src="http://i.imgur.com/8nFdh5O.jpg" alt="" /></p>
+
+<p>Even second-to-two-second render times really start to mount up on most productions. So, if you can simply take animated assets from Motionbuilder or Max straight into Unreal, set up a camera, and render out in realtime, that could be an incredibly freeing workflow.</p>
+
+<p>So what doesn&rsquo;t work?</p>
+
+<h2 id="the-practise">The Practise</h2>
+
+<p>First of all, whilst the Unreal Engine has massively improved its import pipeline, it&rsquo;s still not the most user-friendly thing on the planet. I hit the usual problems of incompatibilities, unintelligible error messages (mostly references to non-existent bones) and wildly varying scales between 3D scenes.</p>
+
+<p>None of these are close to being a dealbreaker. In all cases, they&rsquo;re solve-once-solve-forever issues.</p>
+
+<p>The big hairy problem, though, is the time it takes to import a 3D asset - specifically, an animation. Importing a relatively simple 20 second or so mocap file took about 5 minutes on my computer. Bigger ones seemed to take longer - before crashing (although I imagine that&rsquo;s fixable).</p>
+
+<p>Given that you&rsquo;ll have to redo that import every time you want to make a change to the animation, that&rsquo;s a big timesink, and really diminishes the utility of this approach compared to &ldquo;just render in Max&rdquo;.</p>
+
+<p>And then we hit the lighting. Simple directional lighting is indeed truly realtime, but to get sophisticated lighting results including global illumination, indirect bounce light, and so on, Unreal Engine is still dependent - as far as I can tell - on the age-old &ldquo;bake the lightmap&rdquo; approach.</p>
+
+<p>That means, essentially, that we still have a render stage. It&rsquo;s quite a fast one, and it only needs to be done once before the realtime render can kick in, but still, it&rsquo;s another significant slowdown - and apparently one that on larger maps can get quite slow.</p>
+
+<p>Between the two, it looks like the choice between render-in-Max and render-in-game-engine is actually pretty much a dead heat. And then it comes down to the choice of tools available- at which point the fact that Unreal&rsquo;s designed to make games, and Max is designed to animate things, really means that Max has the edge. (Even if I do still hate Max&rsquo;s animation interface compared to Motionbuilder.) Matinee, Unreal&rsquo;s cinematics tool, is sadly still about as friendly as a 2002 Avid workstation stapled to an angry grizzly bear.</p>
+
+<p><img src="http://i.imgur.com/0ESRpOd.jpg" alt="Imgur" /></p>
+
+<p>So there we have it.</p>
+
+<h3 id="future-directions-for-testing">Future Directions For Testing</h3>
+
+<p>I don&rsquo;t think that Unity would provide much better results, although I should test it now that it has its swanky new lighting engine. Certainly last time I used Unity the import pipeline was a lot less painful.</p>
+
+<p>Stingray, Autodesk&rsquo;s own game engine, might also be an option, but from reading around, their cinematics interface is even less friendly, requiring 20 minutes of scripting just to render out a movie. Nuts to that, quite frankly.</p>
+
+<p>If Unreal&rsquo;s import pipeline gets much faster, it&rsquo;ll definitely be worth checking out again. In particular, if they add <a href="https://en.wikipedia.org/wiki/Alembic_(Computer_Graphics)">Alembic</a> support that&rsquo;d change things a lot - assuming that it imported reasonably fast - but it appears to have been on the wishlist for years with no sign of movement.</p>
+
+<p>And, of course, I should once again check out Maya&rsquo;s realtime preview window, which last time I tested it looked to provide the best of game engine and animation package, but then failed by being spectacularly buggy.</p>
+
+<p>If only Autodesk would just weld a decent 3D renderer onto Motionbuilder. Then I could just use that and carry on.</p>
+
+<h3 id="update-unity">UPDATE: Unity</h3>
+
+<p>Unity testing is somewhat more promising. In particular, lengthy FBX animations import pretty much instantly, removing one of the biggest roadblocks I was concerned about above.</p>
+
+<p>Unity doesn&rsquo;t have built-in camera movement support (although apparently it&rsquo;s coming soon) or movie export support, so the next job is to test solutions for both of those.</p>
+
+<p>In addition, the lighting bake problem is still concerning. I need to test it on a smaller map, but tested on an admittedly large and heavy voxel map, it was extremely slow.</p>
+
+<p>It&rsquo;s possible to just use realtime solutions, but they&rsquo;re pretty ugly - about the visual fidelity of <a href="http://www.deathknightlovestory.com">Death Knight Love Story</a> or below. Having said that, I used a renderer with that level of capability for <a href="http://www.youtube.com/watch?v=MhDJxESBiJo">The Shy Creeper</a>, which was pretty popular - maybe this is a &ldquo;perfect enemy of good&rdquo; moment.</p>
+
+<p>In addition, there&rsquo;s a promising realtime GI solution in the Unity Asset Store, so that&rsquo;s the next test to do&hellip;</p>
+
+<p>If you have thoughts, comments or suggestions, please do let me know on <a href="http://www.twitter.com/hughhancock">Twitter</a>, <a href="http://www.facebook.com/strangecompany">Facebook</a>, or the discussions on <a href="https://www.reddit.com/r/gamedev/comments/44r4k6/game_engines_as_movie_renderers_in_2016_comments/">Reddit</a> or <a href="https://news.ycombinator.com/item?id=11058249">Hacker News</a>.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+
+</html>

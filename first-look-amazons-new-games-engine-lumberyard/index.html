@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="First Look: Amazon&#39;s New Games Engine, Lumberyard" />
+<meta property="og:description" content="I just saw that Amazon have gotten into the games engine business with a new engine, Lumberyard.
+I&rsquo;ve had a look at the documentation and features list - haven&rsquo;t tried to build anything in it yet - and wrote up my thoughts as a comment over at Hacker News. Since that became rather long, I thought I&rsquo;d reproduce it here as an article for others who might be interested.
+Digging into the details, it seems this is largely a fork or adaption of the CryEngine, with all the advantages and disadvantages that brings." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.strangecompany.org/first-look-amazons-new-games-engine-lumberyard/" />
+
+
+<meta property="og:updated_time" content="2016-02-09T10:55:50&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="First Look: Amazon&#39;s New Games Engine, Lumberyard">
+<meta itemprop="description" content="I just saw that Amazon have gotten into the games engine business with a new engine, Lumberyard.
+I&rsquo;ve had a look at the documentation and features list - haven&rsquo;t tried to build anything in it yet - and wrote up my thoughts as a comment over at Hacker News. Since that became rather long, I thought I&rsquo;d reproduce it here as an article for others who might be interested.
+Digging into the details, it seems this is largely a fork or adaption of the CryEngine, with all the advantages and disadvantages that brings.">
+
+
+<meta itemprop="dateModified" content="2016-02-09T10:55:50&#43;00:00" />
+<meta itemprop="wordCount" content="386">
+
+
+
+<meta itemprop="keywords" content="carcosa,classic-posts-from-machinima.com,comics,culture-and-law,death-knight-love-story,film-releases,game-design,guest-posting,history-of-machinima,kamikaze-cookery,live-action,machinima-in-the-news,motion-capture,offsite-articles,press-for-hugh-and-strangeco,research,talks,the-new-plan,virtual-reality,wierd-fantasy,2015,3d-chatroom,3d-engine,3dr-solo,adventure,after-effects,amazon,animation,anna-chancellor,appearances,artery,articles,audio,audio-drama,auld-reekie,awards,behind-the-scenes,blasphemous,blizzard,bloodspell,boingboing,brian-blessed,cambridge-film-festival,camerawork,capcom,carcosa,cellar-and-tower,cgi,characters,charles-stross,chris-jones,claws,cliffs,comedy,comic,comics,communication,conpulsion,convention,copyright,cthulhu,cthulhu-mythos,cutscenes,dangerous-treasures,dark-souls,darkening-twilight,daz3d,death-knight-love-story,death-marches,demon,development,dkls,dmca,dmfest,documentary,dota,drones,dvd,edinburgh,edinburgh-festival,edinburgh-interactive-entertainment-festival,eldrich,eschaton,esoterica,eula,experiments,eye-of-the-tower,facial-animation,fair-game,fair-trade,fair-use,fanfic,fantasy,fargo-film-festival,faust,faustian-bargain,feature-film,film,film-festivals,film-industry,filmmaking,filter-bubble,follow-focus,forbes,free-feature-film,fthagn,full-ownership,gamasutra,game-design,game-development,game-engine,games,gareth-edwards,gear-vr,geek,geek-lovecraft,gimbals,google,gopro,gpu-rendering,greenscreen,guest-blog,guest-posts,gyroscopes,half-life,hand-of-glory,have-you-seen-the-spires,hdri,history,horroc-comedy,horror,howto,howto-demon-summoning,howto-resurrection,howtodemon-summoning,htc-vive,hugh,hugh-hancock,ia,imus,independent,indie,indie-filmmaking,indiedev,inquisitors-oath,intellectual-property,interactive,interview,jack-davenport,joanna-lumley,johnnie-ingram,jrpg,kamikaze-cookery,king-in-yellow,language,languages,law,leap-motion,left-hand-path,left-handed-path,lessons-learned,lets-play,lily-drone,live-action,lord-byron,lovecraft,low-light,lumberyard,machinima,machinima.com,magic-of-the-dark,male-restroom-etiquette,matinee,matrix,matrix-4x1,mediums,minecraft,mmorpgs,mocap,motion-capture,motionbuilder,movies,mvn,mystery,nebula-4000,nell-gwyn,new-project,no-share,non-narrative,npr,occult,octane-render,oculus-rift,otoy,paddy-easton,panorama,paul-hamilton,paul-marino,performance-capture,pgwlnafh,pictures,pilot,pipeline,podcasting,podcasts,pre-rendering,press,private-servers,procedural-generation,props,punk,puppetry,quake-movie,radio,radio-plays,raindance,rando-cardrissian,release,renderers,rendering,research,rlyeh,robots,roger-ebert,romantic-poets,roomscale,rpg,rpgs,scripts,second-life,serialised-video,shambler,shoggoth,short-film,singapore,sinister,soloshot,sony-a7s,squamous,startup,stereo-cubemap,stone-and-sorcery,stories,stunts,subtitles,tarot,technical,telltale-games,test-project,text,the-future,the-goat-of-the-woods-with-a-thousand-young,the-guardian,the-return,the-scotsman,the-sims,time-travellers,trailer,tv,twitter,unity,unity-3d,unreal,upcoming,vfx,virtual-camera,virtual-reality,virtual-sets,visual-effects,vive,voxels,vr,vrjam,webcomic,websites,weird,westcott-icelight,when-we-two-parted,wholetsplay,why-machinima,work-in-progress,world-of-warcraft,wow,wow-insider,xsens," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="First Look: Amazon&#39;s New Games Engine, Lumberyard"/>
+<meta name="twitter:description" content="I just saw that Amazon have gotten into the games engine business with a new engine, Lumberyard.
+I&rsquo;ve had a look at the documentation and features list - haven&rsquo;t tried to build anything in it yet - and wrote up my thoughts as a comment over at Hacker News. Since that became rather long, I thought I&rsquo;d reproduce it here as an article for others who might be interested.
+Digging into the details, it seems this is largely a fork or adaption of the CryEngine, with all the advantages and disadvantages that brings."/>
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18" />
+
+
+    <link rel="canonical" href="index.html">
+
+    <title>First Look: Amazon&rsquo;s New Games Engine, Lumberyard | Strange Company - Creating Virtual Worlds For 2 Decades</title>
+
+    <!-- combined, minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-696676-12', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='http://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+
+	
+<style>
+
+  @font-face{font-family:FontAwesome;src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot");src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot#iefix&v=4.7.0") format("embedded-opentype"),url("http://d33wubrfki0l68.cloudfront.net/d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c/a8490/fonts/fontawesome-webfont.woff2") format("woff2"),url("http://d33wubrfki0l68.cloudfront.net/28b782240b3e76db824e12c02754a9731a167527/9333f/fonts/fontawesome-webfont.woff") format("woff"),url("http://d33wubrfki0l68.cloudfront.net/13b1eab65a983c7a73bc7997c479d66943f7c6cb/8dbd9/fonts/fontawesome-webfont.ttf") format("truetype"),url("http://d33wubrfki0l68.cloudfront.net/98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed/62e61/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.285714em;text-align:center}.fa-tag:before{content:""}.fa-folder:before{content:""}.fa-facebook:before{content:""}.fa-google-plus:before{content:""}.fa-linkedin:before{content:""}.fa-rss:before{content:""}.fa-rss-square:before{content:""}.fa-twitter:before{content:""}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+
+h1{
+    padding-bottom: 1em;
+}
+.intro {
+	padding: 1em 0 2.6em 0;
+	text-align: center;
+}
+.intro img {
+	max-height: 160px;
+	border-radius: 50%;
+}
+.container{
+    max-width: 1000px; 
+}
+h2{
+    font-size:2em;
+}
+body {
+	color: #333;
+	font-family: 'Noticia Text', Georgia, serif;
+	font-size: 1em;
+	line-height: 1.5625;
+	-webkit-text-size-adjust: none;
+}
+
+blockquote {
+	position: relative;
+	margin: 2em 0;
+	padding: .4em 1.2em;
+	font-size: 1.25em;
+	font-weight: 400;
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.aligncenter, .alignnone, .alignright, .alignleft {
+	display: block;
+	margin: 1.6em auto;
+	clear: both;
+}
+
+.alignleft {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+.alignright {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+article img {width: 110%; margin-left: -5%; margin-top: 30px; margin-bottom: 30px; }
+
+blockquote.alignleft, blockquote.alignright {
+	width: 50% !important;
+	padding-bottom: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 12px;
+	padding-right: 1em;
+	margin-top: 16px;
+	font-style: normal;
+	font-weight: 400;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+blockquote::before {
+	display: block;
+	content: "\e81a";
+	line-height: 1;
+	font-size: 18px;
+	position: absolute;
+	left: 0;
+	top: -12px;
+}
+
+.icon, .icon::before, .alert::before, blockquote::before, .flex-direction-nav a::before, .toggle h4::before, .search-toggle::before, .menu-toggle::before, .social-toggle::before, .mask::before, .post-format::before, .selector::before, .checker span::before, .radio span::before, .uploader span.action::before {
+	font-family: fontello;
+	font-style: normal;
+	font-weight: 400;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.embed-responsive{
+    margin:20px; 
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 1.0em 0 0.4em 0;
+	line-height: 1.3;
+}
+
+hr {
+	padding: .2em 0 1em 0;
+	margin-bottom: 2em;
+	outline: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #eee;
+}
+
+p, li {
+	font-size: 19px;
+	line-height: 30px;
+}
+
+.site-title {
+	text-indent: 20px;
+	font-size: 1.4em;
+    font-weight:600; 
+	letter-spacing: -1px;
+    color: #333}
+
+
+.nav{
+    font-weight: 700; 
+}
+
+.navbar-nav{ 
+    padding:0; margin:0; 
+    }
+.navbar-nav li { 
+    line-height: 1; font-size: 15px; font-weight: bold; margin-left: 12px; margin-right: 12px; 
+    }
+.navbar-nav li a { 
+     padding: 0.9em 22px; border-bottom: 1px solid #E7E7E7; 
+    color:#333; 
+    }
+    .navbar{
+        padding:0; line-height: 1.8; 
+    }
+
+.blog-post-meta{
+		font-weight: 100;
+		font-size: 0.9em;
+		font-variant: small-caps; 
+		text-align: center; 
+	}
+
+	.blog-post-title {
+		text-align: center; 
+	}
+
+	.blog-post-title a{
+		color: #333;
+	}
+
+	.blog-main h1{
+		font-variant: small-caps; 
+		text-align: center;
+	}
+
+	.blog-summary-image{
+		width: 90%;
+		margin: 0 auto;  
+		min-height: 150px; 
+		background-position: center center; 
+		background-size: cover; 
+	}
+
+	.card-custom{
+		width: 90vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 90vw; 
+	}
+
+	.card-custom a{
+		color: #333; 
+	}
+
+	.card-custom a:hover{
+		text-decoration: none; 
+		background-blend-mode: screen; 
+	}
+
+	.card-topper{
+		width: 90vw;
+		height: 60vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+
+	.menu-button{
+		margin:25px; 
+		border: thin grey solid; 
+		padding: 5px; 
+		border-radius: 10px; 
+		position: relative; 
+		display: inline-block;
+		left: -10vw; 
+		top: -1.5vh; 
+	}
+
+	.top-image
+	{
+		min-height: 150px;
+		margin-bottom: 30px; 
+	}
+
+
+@media (min-width: 768px)
+{
+		.card-topper{
+		width: 45vw;
+		height: 25vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+		.card-custom{
+		width: 45vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 45vw; 
+	}
+    h2 {
+	font-size: 2.10em;
+}
+.top-image
+	{
+		min-height: 250px;
+	}
+blockquote {
+	font-size: 2em !important;
+	line-height: 1.3 !important;
+}
+
+}
+
+@media (min-width: 1024px)
+{
+	.card-topper{
+		width: 29vw;
+		height: 17vw;
+	}
+.card-custom{
+		width: 29vw;
+		margin: 0.5vw; 
+		max-width: 29vw;
+	}
+}
+
+@media (min-width: 1279px)
+{
+	.card-topper{
+		width: 22vw;
+		height: 12.5vw;
+	}
+.card-custom{
+		width: 22vw;
+		margin: 0.5vw; 
+		max-width: 22vw;
+	}
+	.top-image
+	{
+		min-height: 400px;
+		margin-bottom: 75px;
+	}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet"> 
+<link rel="stylesheet" id="fontello-css" href="../wp-content/themes/readme/css/fonts/fontello/css/fontello.css" type="text/css" media="all">
+  </head>
+
+  <body>
+
+
+
+
+    <nav class="navbar navbar-toggleable-md">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <a class="site-title navbar-brand " href="../index.html">Strange Company</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item"> 
+          <a href="../news/index.html" class="nav-link">Latest News</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../articles/index.html" class="nav-link">Articles by Hugh</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../about/index.html" class="nav-link">About Hugh Hancock And Strange Company</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../vr/index.html" class="nav-link">My Virtual Reality Games</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../films-and-comics/index.html" class="nav-link">My Movies And Comics</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../other-projects/index.html" class="nav-link">My Other Projects</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../contact/index.html" class="nav-link">Contact Me / Social Media</a>
+        </li>
+        </ul>
+      </div>
+   </nav>
+
+<div class="container-fluid top-image" style="background-image: url( ../media/PriestessOfTheSun1.jpg  ); background-size:cover; background-position: center center"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="index.html">First Look: Amazon&rsquo;s New Games Engine, Lumberyard</a></h2>
+  </header>
+  <p>I just saw that <a href="http://aws.amazon.com/lumberyard/">Amazon have gotten into the games engine business</a> with a new engine, Lumberyard.</p>
+
+<p>I&rsquo;ve had a look at the documentation and features list - haven&rsquo;t tried to build anything in it yet - and wrote up my thoughts as a <a href="https://news.ycombinator.com/item?id=11064454">comment over at Hacker News</a>. Since that became rather long, I thought I&rsquo;d reproduce it here as an article for others who might be interested.</p>
+
+<hr />
+
+<p>Digging into the details, it seems this is largely a fork or adaption of the CryEngine, with all the advantages and disadvantages that brings.</p>
+
+<p>As I said about Autodesk&rsquo;s offering, Stingray, I think that even a giant like Amazon is going to have an uphill battle bringing a new game engine into mass use. Having been testing game engines just this week, I&rsquo;m reminded just how much of an ecosystem has built up around Unity in particular - displacing an engine with that is like displacing Wordpress as the dominant blogging engine.</p>
+
+<p>It&rsquo;s early days yet but they&rsquo;ve got some serious catching up to do. For example, it appears that 3D assets can only currently be created in Max and Maya (no Blender, no Cinema4d), as rather than using FBX or similar as an interchange format they&rsquo;re using their own custom formats with an exporter. Most other game engines stopped doing that a while ago, for good reason.</p>
+
+<p>Likewise, the level editor is either underdocumented or feature-light. The docs currently just cover creating terrain and vegetation. I assume that the engine has the capability to handle non-outdoor scenes too, but it&rsquo;s not explicitly documented anywhere I can find in a quick look.</p>
+
+<p>There&rsquo;s also no documentation on non-sky lighting, lighting builds, light types, or similar that I can find. There&rsquo;s one mention that the engine supports Global Illumination, but no details as to whether it&rsquo;s realtime or requires a bake process. Searching for &ldquo;lighting&rdquo;, &ldquo;lights&rdquo;, or &ldquo;light&rdquo; in the documentation returns no results!</p>
+
+<p>Interestingly, there&rsquo;s a full-featured cinematics system, which means it&rsquo;s of considerable interest to me, but that&rsquo;s very much a minority thing.</p>
+
+<p>I wish them luck and I&rsquo;ll certainly be checking it out, having said all that. Another fully open-source (not in the sense of Free And Open Source, but in the sense that the source is all accessible) 3D engine is no bad thing.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+
+</html>

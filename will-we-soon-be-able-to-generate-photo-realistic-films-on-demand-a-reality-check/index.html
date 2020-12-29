@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Will We Soon Be Able To Generate Photo-Realistic Films On Demand? A Reality Check" />
+<meta property="og:description" content="A little while ago I saw a fascinating comment on Hacker News, echoing a sentiment that I&rsquo;ve seen around the tech community as a whole.
+   Within a few years, video games will be generating photo-realistic feature films on demand, with unique scripts and characters and worlds adapted to the viewer&#39;s tastes and mood.    Original comment here.
+I&rsquo;ve spent the last 20 years attempting to figure out how to generate as much as possible of the movie-making process in a computer game - with successes including a well-received feature film made using computer games tech and feature-length work for companies like Electronic Arts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.strangecompany.org/will-we-soon-be-able-to-generate-photo-realistic-films-on-demand-a-reality-check/" />
+
+
+<meta property="og:updated_time" content="2015-08-05T15:06:30&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Will We Soon Be Able To Generate Photo-Realistic Films On Demand? A Reality Check">
+<meta itemprop="description" content="A little while ago I saw a fascinating comment on Hacker News, echoing a sentiment that I&rsquo;ve seen around the tech community as a whole.
+   Within a few years, video games will be generating photo-realistic feature films on demand, with unique scripts and characters and worlds adapted to the viewer&#39;s tastes and mood.    Original comment here.
+I&rsquo;ve spent the last 20 years attempting to figure out how to generate as much as possible of the movie-making process in a computer game - with successes including a well-received feature film made using computer games tech and feature-length work for companies like Electronic Arts.">
+
+
+<meta itemprop="dateModified" content="2015-08-05T15:06:30&#43;00:00" />
+<meta itemprop="wordCount" content="1460">
+
+
+
+<meta itemprop="keywords" content="carcosa,classic-posts-from-machinima.com,comics,culture-and-law,death-knight-love-story,film-releases,game-design,guest-posting,history-of-machinima,kamikaze-cookery,live-action,machinima-in-the-news,motion-capture,offsite-articles,press-for-hugh-and-strangeco,research,talks,the-new-plan,virtual-reality,wierd-fantasy,2015,3d-chatroom,3d-engine,3dr-solo,adventure,after-effects,amazon,animation,anna-chancellor,appearances,artery,articles,audio,audio-drama,auld-reekie,awards,behind-the-scenes,blasphemous,blizzard,bloodspell,boingboing,brian-blessed,cambridge-film-festival,camerawork,capcom,carcosa,cellar-and-tower,cgi,characters,charles-stross,chris-jones,claws,cliffs,comedy,comic,comics,communication,conpulsion,convention,copyright,cthulhu,cthulhu-mythos,cutscenes,dangerous-treasures,dark-souls,darkening-twilight,daz3d,death-knight-love-story,death-marches,demon,development,dkls,dmca,dmfest,documentary,dota,drones,dvd,edinburgh,edinburgh-festival,edinburgh-interactive-entertainment-festival,eldrich,eschaton,esoterica,eula,experiments,eye-of-the-tower,facial-animation,fair-game,fair-trade,fair-use,fanfic,fantasy,fargo-film-festival,faust,faustian-bargain,feature-film,film,film-festivals,film-industry,filmmaking,filter-bubble,follow-focus,forbes,free-feature-film,fthagn,full-ownership,gamasutra,game-design,game-development,game-engine,games,gareth-edwards,gear-vr,geek,geek-lovecraft,gimbals,google,gopro,gpu-rendering,greenscreen,guest-blog,guest-posts,gyroscopes,half-life,hand-of-glory,have-you-seen-the-spires,hdri,history,horroc-comedy,horror,howto,howto-demon-summoning,howto-resurrection,howtodemon-summoning,htc-vive,hugh,hugh-hancock,ia,imus,independent,indie,indie-filmmaking,indiedev,inquisitors-oath,intellectual-property,interactive,interview,jack-davenport,joanna-lumley,johnnie-ingram,jrpg,kamikaze-cookery,king-in-yellow,language,languages,law,leap-motion,left-hand-path,left-handed-path,lessons-learned,lets-play,lily-drone,live-action,lord-byron,lovecraft,low-light,lumberyard,machinima,machinima.com,magic-of-the-dark,male-restroom-etiquette,matinee,matrix,matrix-4x1,mediums,minecraft,mmorpgs,mocap,motion-capture,motionbuilder,movies,mvn,mystery,nebula-4000,nell-gwyn,new-project,no-share,non-narrative,npr,occult,octane-render,oculus-rift,otoy,paddy-easton,panorama,paul-hamilton,paul-marino,performance-capture,pgwlnafh,pictures,pilot,pipeline,podcasting,podcasts,pre-rendering,press,private-servers,procedural-generation,props,punk,puppetry,quake-movie,radio,radio-plays,raindance,rando-cardrissian,release,renderers,rendering,research,rlyeh,robots,roger-ebert,romantic-poets,roomscale,rpg,rpgs,scripts,second-life,serialised-video,shambler,shoggoth,short-film,singapore,sinister,soloshot,sony-a7s,squamous,startup,stereo-cubemap,stone-and-sorcery,stories,stunts,subtitles,tarot,technical,telltale-games,test-project,text,the-future,the-goat-of-the-woods-with-a-thousand-young,the-guardian,the-return,the-scotsman,the-sims,time-travellers,trailer,tv,twitter,unity,unity-3d,unreal,upcoming,vfx,virtual-camera,virtual-reality,virtual-sets,visual-effects,vive,voxels,vr,vrjam,webcomic,websites,weird,westcott-icelight,when-we-two-parted,wholetsplay,why-machinima,work-in-progress,world-of-warcraft,wow,wow-insider,xsens," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Will We Soon Be Able To Generate Photo-Realistic Films On Demand? A Reality Check"/>
+<meta name="twitter:description" content="A little while ago I saw a fascinating comment on Hacker News, echoing a sentiment that I&rsquo;ve seen around the tech community as a whole.
+   Within a few years, video games will be generating photo-realistic feature films on demand, with unique scripts and characters and worlds adapted to the viewer&#39;s tastes and mood.    Original comment here.
+I&rsquo;ve spent the last 20 years attempting to figure out how to generate as much as possible of the movie-making process in a computer game - with successes including a well-received feature film made using computer games tech and feature-length work for companies like Electronic Arts."/>
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.18" />
+
+
+    <link rel="canonical" href="index.html">
+
+    <title>Will We Soon Be Able To Generate Photo-Realistic Films On Demand? A Reality Check | Strange Company - Creating Virtual Worlds For 2 Decades</title>
+
+    <!-- combined, minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-696676-12', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='http://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+
+	
+<style>
+
+  @font-face{font-family:FontAwesome;src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot");src:url("http://d33wubrfki0l68.cloudfront.net/d980c2ce873dc43af460d4d572d441304499f400/44fd9/fonts/fontawesome-webfont.eot#iefix&v=4.7.0") format("embedded-opentype"),url("http://d33wubrfki0l68.cloudfront.net/d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c/a8490/fonts/fontawesome-webfont.woff2") format("woff2"),url("http://d33wubrfki0l68.cloudfront.net/28b782240b3e76db824e12c02754a9731a167527/9333f/fonts/fontawesome-webfont.woff") format("woff"),url("http://d33wubrfki0l68.cloudfront.net/13b1eab65a983c7a73bc7997c479d66943f7c6cb/8dbd9/fonts/fontawesome-webfont.ttf") format("truetype"),url("http://d33wubrfki0l68.cloudfront.net/98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed/62e61/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.285714em;text-align:center}.fa-tag:before{content:""}.fa-folder:before{content:""}.fa-facebook:before{content:""}.fa-google-plus:before{content:""}.fa-linkedin:before{content:""}.fa-rss:before{content:""}.fa-rss-square:before{content:""}.fa-twitter:before{content:""}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+
+h1{
+    padding-bottom: 1em;
+}
+.intro {
+	padding: 1em 0 2.6em 0;
+	text-align: center;
+}
+.intro img {
+	max-height: 160px;
+	border-radius: 50%;
+}
+.container{
+    max-width: 1000px; 
+}
+h2{
+    font-size:2em;
+}
+body {
+	color: #333;
+	font-family: 'Noticia Text', Georgia, serif;
+	font-size: 1em;
+	line-height: 1.5625;
+	-webkit-text-size-adjust: none;
+}
+
+blockquote {
+	position: relative;
+	margin: 2em 0;
+	padding: .4em 1.2em;
+	font-size: 1.25em;
+	font-weight: 400;
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.aligncenter, .alignnone, .alignright, .alignleft {
+	display: block;
+	margin: 1.6em auto;
+	clear: both;
+}
+
+.alignleft {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+.alignright {
+	float: left;
+	margin: .4em 2em 1em 0;
+}
+
+article img {width: 110%; margin-left: -5%; margin-top: 30px; margin-bottom: 30px; }
+
+blockquote.alignleft, blockquote.alignright {
+	width: 50% !important;
+	padding-bottom: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 12px;
+	padding-right: 1em;
+	margin-top: 16px;
+	font-style: normal;
+	font-weight: 400;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+blockquote::before {
+	display: block;
+	content: "\e81a";
+	line-height: 1;
+	font-size: 18px;
+	position: absolute;
+	left: 0;
+	top: -12px;
+}
+
+.icon, .icon::before, .alert::before, blockquote::before, .flex-direction-nav a::before, .toggle h4::before, .search-toggle::before, .menu-toggle::before, .social-toggle::before, .mask::before, .post-format::before, .selector::before, .checker span::before, .radio span::before, .uploader span.action::before {
+	font-family: fontello;
+	font-style: normal;
+	font-weight: 400;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.embed-responsive{
+    margin:20px; 
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 1.0em 0 0.4em 0;
+	line-height: 1.3;
+}
+
+hr {
+	padding: .2em 0 1em 0;
+	margin-bottom: 2em;
+	outline: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #eee;
+}
+
+p, li {
+	font-size: 19px;
+	line-height: 30px;
+}
+
+.site-title {
+	text-indent: 20px;
+	font-size: 1.4em;
+    font-weight:600; 
+	letter-spacing: -1px;
+    color: #333}
+
+
+.nav{
+    font-weight: 700; 
+}
+
+.navbar-nav{ 
+    padding:0; margin:0; 
+    }
+.navbar-nav li { 
+    line-height: 1; font-size: 15px; font-weight: bold; margin-left: 12px; margin-right: 12px; 
+    }
+.navbar-nav li a { 
+     padding: 0.9em 22px; border-bottom: 1px solid #E7E7E7; 
+    color:#333; 
+    }
+    .navbar{
+        padding:0; line-height: 1.8; 
+    }
+
+.blog-post-meta{
+		font-weight: 100;
+		font-size: 0.9em;
+		font-variant: small-caps; 
+		text-align: center; 
+	}
+
+	.blog-post-title {
+		text-align: center; 
+	}
+
+	.blog-post-title a{
+		color: #333;
+	}
+
+	.blog-main h1{
+		font-variant: small-caps; 
+		text-align: center;
+	}
+
+	.blog-summary-image{
+		width: 90%;
+		margin: 0 auto;  
+		min-height: 150px; 
+		background-position: center center; 
+		background-size: cover; 
+	}
+
+	.card-custom{
+		width: 90vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 90vw; 
+	}
+
+	.card-custom a{
+		color: #333; 
+	}
+
+	.card-custom a:hover{
+		text-decoration: none; 
+		background-blend-mode: screen; 
+	}
+
+	.card-topper{
+		width: 90vw;
+		height: 60vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+
+	.menu-button{
+		margin:25px; 
+		border: thin grey solid; 
+		padding: 5px; 
+		border-radius: 10px; 
+		position: relative; 
+		display: inline-block;
+		left: -10vw; 
+		top: -1.5vh; 
+	}
+
+	.top-image
+	{
+		min-height: 150px;
+		margin-bottom: 30px; 
+	}
+
+
+@media (min-width: 768px)
+{
+		.card-topper{
+		width: 45vw;
+		height: 25vw;
+		background-position: center center; 
+		background-size: cover;
+	}
+		.card-custom{
+		width: 45vw;
+		margin: 0.5vw; 
+		flex: 1; 
+		max-width: 45vw; 
+	}
+    h2 {
+	font-size: 2.10em;
+}
+.top-image
+	{
+		min-height: 250px;
+	}
+blockquote {
+	font-size: 2em !important;
+	line-height: 1.3 !important;
+}
+
+}
+
+@media (min-width: 1024px)
+{
+	.card-topper{
+		width: 29vw;
+		height: 17vw;
+	}
+.card-custom{
+		width: 29vw;
+		margin: 0.5vw; 
+		max-width: 29vw;
+	}
+}
+
+@media (min-width: 1279px)
+{
+	.card-topper{
+		width: 22vw;
+		height: 12.5vw;
+	}
+.card-custom{
+		width: 22vw;
+		margin: 0.5vw; 
+		max-width: 22vw;
+	}
+	.top-image
+	{
+		min-height: 400px;
+		margin-bottom: 75px;
+	}
+}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet"> 
+<link rel="stylesheet" id="fontello-css" href="../wp-content/themes/readme/css/fonts/fontello/css/fontello.css" type="text/css" media="all">
+  </head>
+
+  <body>
+
+
+
+
+    <nav class="navbar navbar-toggleable-md">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <a class="site-title navbar-brand " href="../index.html">Strange Company</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item"> 
+          <a href="../news/index.html" class="nav-link">Latest News</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../articles/index.html" class="nav-link">Articles by Hugh</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../about/index.html" class="nav-link">About Hugh Hancock And Strange Company</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../vr/index.html" class="nav-link">My Virtual Reality Games</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../films-and-comics/index.html" class="nav-link">My Movies And Comics</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../other-projects/index.html" class="nav-link">My Other Projects</a>
+        </li>
+        <li class="nav-item"> 
+          <a href="../contact/index.html" class="nav-link">Contact Me / Social Media</a>
+        </li>
+        </ul>
+      </div>
+   </nav>
+
+<div class="container-fluid top-image" style="background-image: url( ../media/Final-fantasy-3.jpg  ); background-size:cover; background-position: center center"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="index.html">Will We Soon Be Able To Generate Photo-Realistic Films On Demand? A Reality Check</a></h2>
+  </header>
+  
+
+<p>A little while ago I saw a fascinating comment on <a href="http://news.ycombinator.com">Hacker News</a>, echoing a sentiment that I&rsquo;ve seen around the tech community as a whole.</p>
+
+<blockquote>
+  
+> 
+> Within a few years, video games will be generating photo-realistic feature films on demand, with unique scripts and characters and worlds adapted to the viewer's tastes and mood.
+> 
+> 
+</blockquote>
+
+<p><a href="https://news.ycombinator.com/item?id=9960738">Original comment here</a>.</p>
+
+<p>I&rsquo;ve spent the last 20 years attempting to figure out how to generate as much as possible of the movie-making process in a computer game - with successes including a <a href="http://www.bloodspell.com">well-received feature film</a> made using computer games tech and feature-length work for companies like Electronic Arts. So I may possibly be the best person in the world to comment on this particular statement, and it&rsquo;s one of considerable interest to me.</p>
+
+<p>I originally wrote a lengthy reply to his comment on HN, and I&rsquo;m going to expand on it here.</p>
+
+<p>Let&rsquo;s take the statement piece by piece.</p>
+
+<h2 id="photo-realistic">Photo-Realistic</h2>
+
+<p><img src="../media/Final-fantasy-3.jpg" alt="" /></p>
+
+<p>First thing to note: over the last 30 years, real-time 3D technology - games technology, in other words - has consistently lagged behind the state of the art in non-realtime CGI by approximately 15 years. The first true 3D real-time humanoid-based engine (Quake) happened about 13 years after the first 3D film (The Works). Right now, Total War: Warhammer is producing visuals that are a bit, but not too far, behind the mass-battle scenes of Lord of The Rings. And so on.</p>
+
+<p>Given that, if we were able to produce photorealistic humans right now, we&rsquo;d expect realtime photorealism to be about 15 years away. Spoiler: we can&rsquo;t. Whilst we can produce remarkable <a href="http://imgur.com/a/hrnF8#8">still images</a> and even short 20-30 second clips, we&rsquo;ve yet to see anything approaching a successful feature film with a photorealistic CGI human as the star. We can do <a href="https://www.youtube.com/watch?v=eq1sTNGDXo0">apes</a> very well, but humans are still a considerable distance off.</p>
+
+<p>I can say with considerable certainty that the quality of current realtime CGI characters is definitely nowhere near good enough. In fact, I&rsquo;ve recently <a href="../why-the-guy-who-coined-machinima-is-now-making-live-action-films/index.html">stopped creating real-time CGI films</a> after nearly 20 years doing that because the current state of the art appears to be right at the bottom of the Uncanny Valley - about where pre-rendered CGI was <a href="http://www.rottentomatoes.com/m/final_fantasy_the_spirits_within/">15 years ago</a>, in fact.</p>
+
+<h2 id="films-on-demand">Films On Demand</h2>
+
+<p><img src="http://savasplace.com/wp-content/uploads/2009/12/moviestorm.png" alt="" /></p>
+
+<p>So is an AI director and editor plausible?</p>
+
+<p>Ignoring the script, yes, it&rsquo;s possible. We&rsquo;re not there yet but we&rsquo;re getting there.</p>
+
+<p>Programmatic editing is a major growth sector right now, as people take gigabytes of holiday video footage and then can&rsquo;t face editing it down. Having <a href="http://www.kamikazecookery.com">edited massive piles of footage for documentary-style content</a> in the past, I can empathise. There are a number of startups all competing in this space, but probably the most promising one is <a href="https://news.ycombinator.com/item?id=9922414">Shred</a>.</p>
+
+<p>Editing doc-style footage is arguably a harder problem than editing narrative footage, at least to baseline competency levels. A few years of serious effort could probably make this happen.</p>
+
+<p>Directing, DOP and camerawork is another area where a lot of research has taken place over the years. It hasn&rsquo;t gone much beyond the academic sector thanks to lack of demand. Generally directors like to direct, and camerawork in game cutscenes is fast enough compared to the rest of the process that the research time probably isn&rsquo;t worth it. But in principle it&rsquo;s not too different to constructing a sophisticated FPS bot. I&rsquo;d mark this one down as &ldquo;probably doable&rdquo;.</p>
+
+<p>However - and this is a <strong>big</strong> however - there is a huge difference between workmanlike directing and artistic, high-quality directing. You can probably get the equivalent of a bad soap opera out of a program in the near future - but getting a program to produce the equivalent of <a href="http://www.vulture.com/2013/02/how-master-dp-roger-deakins-got-these-10-shots.html">Roger Deakins&rsquo; work as a cinematographer</a> is in the &ldquo;computer that creates art&rdquo; problem pile. It may well require strong AI. If that happens, well, computer-generated films will not be the #1 topic of conversation&hellip;</p>
+
+<h2 id="characters">Characters</h2>
+
+<p><img src="http://img15.hostingpics.net/pics/3240117C5jgon.jpg" alt="" /></p>
+
+<p>Procedurally generating human character models, assuming you&rsquo;ve solved the photorealism problem, is pretty easy. You can do it with Daz3D, Maya, and a MEL script.</p>
+
+<p>Procedurally generating them to fit a specific role, however, is far harder. My best guess would be that you could get somewhere by giving the computer some specific rules to follow - strong jaw for action heroes, big eyes for romantic heroine - but I&rsquo;ve no idea how effective that would be. Alternatively, we could give a regret-based algorithm a bunch of adjectives and feed the results to a panel of Mechanical Turkers who say how close the algorithm has gotten to the desired result. That might well work really well, but that&rsquo;s largely because top-end machine learning is scary. Or it might work very well 75% of the time and produce hideous deformed monstrosities the other 25%. It&rsquo;s very hard to tell.</p>
+
+<p>Procedurally generating the characters&rsquo; motion, and particularly the characters&rsquo; <strong>emotion</strong>, is closing on being impossible with current technology. You can get to Sims levels of generation pretty easily, but the looping animations and lack of characterisation are very obvious there. Getting beyond that to genuinely unique motion is very hard, but is an active area of interest for game developers at the moment: the <a href="https://www.youtube.com/watch?v=r6F3lT1v79I">Euphoria engine</a> can produce some very impressive results in a limited range of circumstances, and <a href="http://www.gdcvault.com/play/1020583/Animation-Bootcamp-An-Indie-Approach">some indie game developers are pushing procedural animation as far as it will go</a> (seriously, watch, it&rsquo;s a fascinating talk).</p>
+
+<p>However, this is still very early-stages stuff. Most procedural animation works by modifying existing animations rather than creating them from scratch, and there&rsquo;s very little discussion of <strong>performance</strong> - as in an actor&rsquo;s performance - in this tech. Again, we might be able to get to a very wooden actor using a combination of a massive mocap library and procedural animation, but getting to the Sir Ian McKellen simulator might require a theory of mind or strong AI.</p>
+
+<h2 id="worlds">Worlds</h2>
+
+<p><img src="../media/Terrain-With-Trees.jpg" alt="" /></p>
+
+<p>Procedural world generation is very promising right now. Of course, almost everyone is aware that it&rsquo;s possible to <a href="http://www.minecraft.com">procedurally generate stunning landscapes</a>, albeit blocky ones. I&rsquo;ve <a href="../im-developing-a-new-way-to-make-films-again/index.html">experimented extensively</a> with using procedural generation for films, up to and including doing some <a href="http://www.stoneandsorcery.com">Minecraft-a-like</a> work, and it&rsquo;s got massive promise.</p>
+
+<p>Procedural generation is already used extensively in film CGI - it&rsquo;s pretty much the raison d&rsquo;etre of expensive, high-end 3D package Houdini. And programs like <a href="http://www.world-machine.com/">World Machine</a> allow the user to create massive, complex landscapes very rapidly.</p>
+
+<p>However, it still requires direction and tweaking. It&rsquo;s possible to see how a procedural script could take a rough animatic with areas marked &ldquo;trees&rdquo;, &ldquo;mountain&rdquo; or &ldquo;city&rdquo; and effectively act as a &ldquo;make pretty&rdquo; button, but creating sets from just a script direction is much harder.</p>
+
+<h2 id="unique-scripts-adapted-to-the-viewer-s-taste-and-mood">Unique Scripts Adapted To The Viewer&rsquo;s Taste And Mood</h2>
+
+<p>And finally we hit the crunch point.</p>
+
+<p>Recommending films based on the viewer&rsquo;s taste and mood is certainly very doable, and we can even start to generate projects based on data-driven demand. Famously, that&rsquo;s how &ldquo;House Of Cards&rdquo; came to be: when Netflix went datamining, they found that people who like political thrillers also like David Fincher and Kevin Spacey.</p>
+
+<p>But a program that can write a script? Nope, we&rsquo;re nowhere with that.</p>
+
+<p>Generative text is hot right now. There&rsquo;s a <a href="https://www.reddit.com/r/subredditsimulator">subreddit entirely devoted to computer-generated Reddit posting</a>. <a href="http://www.theguardian.com/technology/2014/sep/12/artificial-intelligence-data-journalism-media">Computerised reporters</a> are gaining steam. But all the efforts here are still pretty primitive.</p>
+
+<p>And that&rsquo;s just teaching a computer to write intelligible text. Teaching it to write a story is altogether harder.</p>
+
+<p>There&rsquo;s NaNoGenMo, the <a href="http://www.theverge.com/2014/11/25/7276157/nanogenmo-robot-author-novel">AI Generated Novel equivalent to NaNoRiMo</a>, but nearly all the generated novels are based on hacks rather than anything actually creating a story structure. There are also researchers - a lot of them - working on generating stories on computer, but so far, <a href="http://www.theguardian.com/books/2014/nov/11/can-computers-write-fiction-artificial-intelligence">their work is extremely primitive</a>. Scheherazade, one of the most sophisticated programs, produces descriptions of everyday activities - it&rsquo;s considered successful when &ldquo; “people will read the story and recognise the activity and not find too many obvious errors&rdquo;.</p>
+
+<p>Essentially, there&rsquo;s no evidence that it&rsquo;s possible to generate a narrative using a computer, let alone write a script, let alone write a script that hits the notes the viewer requires.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>So, in short, we might be looking at Hollywood being replaced completely at some point, but I doubt it&rsquo;ll happen in the next 20 years.</p>
+
+<p>However, what IS a huge threat to Hollywood is the increased power of indie filmmakers with technological assists.</p>
+
+<p>One filmmaker today can do things that would have required a crew of 20 back in 1993. The cost of filmmaking is plummeting. And that certainly is a threat to Hollywood.</p>
+
+<p>That&rsquo;s where I&rsquo;m focusing my efforts at the moment - <a href="../why-the-guy-who-coined-machinima-is-now-making-live-action-films/index.html">becoming a cyborg filmmaker</a>, as it were.</p>
+
+<p>If you want to follow how that goes, hit the button below to get updated as I progress!</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+
+    </footer>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+
+</html>
